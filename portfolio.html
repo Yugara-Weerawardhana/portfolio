@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yugara Weerawardhana - Biomedical Technology Specialist</title>
+    <meta name="description" content="Portfolio of Yugara Weerawardhana, Biomedical Technology undergraduate specializing in medical instrumentation and healthcare technology innovation.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0284c7;
+            --secondary-color: #06b6d4;
+            --accent-color: #10b981;
+            --bg-light: #ffffff;
+            --bg-light-secondary: #f8fafc;
+            --text-light: #1e293b;
+            --text-light-secondary: #475569;
+            --bg-dark: #0f172a;
+            --bg-dark-secondary: #1e293b;
+            --text-dark: #f8fafc;
+            --text-dark-secondary: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .light-mode {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+
+        .dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .dark-mode .card-hover:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 4px solid var(--bg-light);
+            z-index: 1;
+        }
+
+        .dark-mode .timeline-item::before {
+            border-color: var(--bg-dark);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .dark-mode #loader {
+            background: var(--bg-dark);
+        }
+
+        .section-bg-light {
+            background-color: var(--bg-light-secondary);
+        }
+
+        .dark-mode .section-bg-light {
+            background-color: var(--bg-dark-secondary);
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.05), rgba(16, 185, 129, 0.05));
+            border: 1px solid rgba(2, 132, 199, 0.2);
+        }
+
+        .dark-mode .project-card {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.1), rgba(16, 185, 129, 0.1));
+            border: 1px solid rgba(2, 132, 199, 0.3);
+        }
+    </style>
+</head>
+<body class="light-mode smooth-scroll">
+
+    <div id="loader">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/80 dark-mode:bg-slate-900/80 shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-xl font-bold gradient-text">YW</div>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#timeline" class="nav-link">Journey</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-moon text-xl" id="theme-icon"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2">
+                <a href="#home" class="block py-2 hover:text-sky-600 transition-colors">Home</a>
+                <a href="#about" class="block py-2 hover:text-sky-600 transition-colors">About</a>
+                <a href="#skills" class="block py-2 hover:text-sky-600 transition-colors">Skills</a>
+                <a href="#projects" class="block py-2 hover:text-sky-600 transition-colors">Projects</a>
+                <a href="#timeline" class="block py-2 hover:text-sky-600 transition-colors">Journey</a>
+                <a href="#contact" class="block py-2 hover:text-sky-600 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-sky-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-20 right-10 w-72 h-72 bg-emerald-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto text-center z-10" data-aos="fade-up">
+            <div class="mb-6">
+                <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-sky-500 to-emerald-500 p-1 shadow-2xl">
+                    <div class="w-full h-full rounded-full bg-white dark:bg-slate-800 flex items-center justify-center">
+                        <i class="fas fa-heartbeat text-5xl text-sky-600"></i>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+                <span class="gradient-text">Yugara Weerawardhana</span>
+            </h1>
+
+            <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-6">
+                Biomedical Technology Specialist
+            </p>
+
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+                Pioneering the future of healthcare through innovative medical instrumentation and the integration of traditional wisdom with modern technology
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <a href="#projects" class="px-8 py-3 bg-gradient-to-r from-sky-600 to-cyan-600 text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                    View Projects
+                </a>
+                <a href="#contact" class="px-8 py-3 border-2 border-sky-600 text-sky-600 rounded-full font-semibold hover:bg-sky-600 hover:text-white transition-all duration-300">
+                    Get in Touch
+                </a>
+            </div>
+
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-2xl text-gray-600 dark:text-gray-400 hover:text-sky-600 transition-colors">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-2xl text-gray-600 dark:text-gray-400 hover:text-sky-600 transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-2xl text-gray-600 dark:text-gray-400 hover:text-sky-600 transition-colors">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="mailto:yugara@example.com" class="text-2xl text-gray-600 dark:text-gray-400 hover:text-sky-600 transition-colors">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-4 section-bg-light">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text" data-aos="fade-up">About Me</h2>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <div class="aspect-square rounded-2xl bg-gradient-to-br from-sky-500 to-emerald-500 p-1 shadow-2xl">
+                        <div class="w-full h-full rounded-2xl bg-white dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+                            <i class="fas fa-stethoscope text-9xl text-sky-600 opacity-20"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left" class="space-y-6">
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        As a dedicated <strong>Biomedical Technology</strong> undergraduate, I am passionate about revolutionizing healthcare through innovative medical instrumentation and diagnostic technologies. My expertise lies in bridging the gap between engineering excellence and clinical applications.
+                    </p>
+
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        I specialize in developing sophisticated medical devices that enhance patient care and diagnostic accuracy. My unique approach integrates <strong>traditional indigenous medicine</strong> principles with cutting-edge biomedical technology, creating holistic healthcare solutions.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div class="text-center p-4 rounded-xl bg-white dark:bg-slate-700 shadow-md">
+                            <i class="fas fa-microscope text-3xl text-sky-600 mb-2"></i>
+                            <p class="font-semibold">Diagnostic Tech</p>
+                        </div>
+                        <div class="text-center p-4 rounded-xl bg-white dark:bg-slate-700 shadow-md">
+                            <i class="fas fa-heartbeat text-3xl text-emerald-600 mb-2"></i>
+                            <p class="font-semibold">Patient Care</p>
+                        </div>
+                        <div class="text-center p-4 rounded-xl bg-white dark:bg-slate-700 shadow-md">
+                            <i class="fas fa-brain text-3xl text-cyan-600 mb-2"></i>
+                            <p class="font-semibold">Innovation</p>
+                        </div>
+                        <div class="text-center p-4 rounded-xl bg-white dark:bg-slate-700 shadow-md">
+                            <i class="fas fa-leaf text-3xl text-green-600 mb-2"></i>
+                            <p class="font-semibold">Holistic Health</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text" data-aos="fade-up">Skills & Expertise</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-laptop-medical text-5xl text-sky-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4">Biomedical Engineering</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Medical Instrumentation</span>
+                                <span class="font-semibold">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar" style="width: 0%" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Diagnostic Systems</span>
+                                <span class="font-semibold">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar" style="width: 0%" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Signal Processing</span>
+                                <span class="font-semibold">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar" style="width: 0%" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Biosensors</span>
+                                <span class="font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar" style="width: 0%" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-code text-5xl text-cyan-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4">Technical Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>MATLAB</span>
+                                <span class="font-semibold">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar" style="width: 0%" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Python</span>
+                                <span class="font-semibold">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar" style="width: 0%" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>LabVIEW</span>
+                                <span class="font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar" style="width: 0%" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Circuit Design</span>
+                                <span class="font-semibold">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar" style="width: 0%" data-width="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-users text-5xl text-emerald-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4">Professional Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Research & Analysis</span>
+                                <span class="font-semibold">93%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar" style="width: 0%" data-width="93"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Project Management</span>
+                                <span class="font-semibold">87%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar" style="width: 0%" data-width="87"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Team Collaboration</span>
+                                <span class="font-semibold">91%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar" style="width: 0%" data-width="91"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Technical Documentation</span>
+                                <span class="font-semibold">89%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar" style="width: 0%" data-width="89"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 px-4 section-bg-light">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 gradient-text" data-aos="fade-up">Projects & Research</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12" data-aos="fade-up">Innovative medical device solutions and research initiatives</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover project-card rounded-xl p-6 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-heartbeat text-sky-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">ECG Monitoring System</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Advanced portable ECG device with real-time arrhythmia detection and cloud-based data analysis for remote patient monitoring.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-sky-100 dark:bg-sky-900 text-sky-700 dark:text-sky-300 rounded-full text-sm">Signal Processing</span>
+                        <span class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-700 dark:text-cyan-300 rounded-full text-sm">IoT</span>
+                    </div>
+                    <a href="#" class="text-sky-600 hover:text-sky-700 font-semibold">Learn More →</a>
+                </div>
+
+                <div class="card-hover project-card rounded-xl p-6 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-thermometer-half text-emerald-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Smart Fever Detection</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Non-contact infrared thermometry system with AI-powered fever pattern analysis for early disease detection in public spaces.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300 rounded-full text-sm">AI/ML</span>
+                        <span class="px-3 py-1 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded-full text-sm">Thermal Imaging</span>
+                    </div>
+                    <a href="#" class="text-emerald-600 hover:text-emerald-700 font-semibold">Learn More →</a>
+                </div>
+
+                <div class="card-hover project-card rounded-xl p-6 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-lungs text-cyan-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Respiratory Monitor</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Wearable respiratory rate monitor using impedance pneumography for continuous breathing pattern analysis and sleep apnea detection.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-700 dark:text-cyan-300 rounded-full text-sm">Wearables</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Biosensors</span>
+                    </div>
+                    <a href="#" class="text-cyan-600 hover:text-cyan-700 font-semibold">Learn More →</a>
+                </div>
+
+                <div class="card-hover project-card rounded-xl p-6 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-prescription-bottle-alt text-green-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Herbal Medicine Analyzer</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Spectroscopy-based device for authenticating and analyzing indigenous herbal medicines, bridging traditional and modern healthcare.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Spectroscopy</span>
+                        <span class="px-3 py-1 bg-lime-100 dark:bg-lime-900 text-lime-700 dark:text-lime-300 rounded-full text-sm">Traditional Medicine</span>
+                    </div>
+                    <a href="#" class="text-green-600 hover:text-green-700 font-semibold">Learn More →</a>
+                </div>
+
+                <div class="card-hover project-card rounded-xl p-6 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-eye text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Retinal Imaging System</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Affordable fundus camera with machine learning-based diabetic retinopathy screening for early detection in underserved communities.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-full text-sm">Medical Imaging</span>
+                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">Deep Learning</span>
+                    </div>
+                    <a href="#" class="text-indigo-600 hover:text-indigo-700 font-semibold">Learn More →</a>
+                </div>
+
+                <div class="card-hover project-card rounded-xl p-6 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-hand-holding-medical text-rose-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Pulse Oximetry Plus</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Next-generation pulse oximeter with perfusion index monitoring and tissue oxygenation mapping for critical care applications.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-rose-100 dark:bg-rose-900 text-rose-700 dark:text-rose-300 rounded-full text-sm">Photoplethysmography</span>
+                        <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-300 rounded-full text-sm">Critical Care</span>
+                    </div>
+                    <a href="#" class="text-rose-600 hover:text-rose-700 font-semibold">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 gradient-text" data-aos="fade-up">Academic Journey</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12" data-aos="fade-up">My educational pathway and achievements</p>
+
+            <div class="relative border-l-2 border-sky-600 ml-4">
+                <div class="mb-10 ml-8 timeline-item relative" data-aos="fade-left">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg card-hover">
+                        <span class="text-sm font-semibold text-sky-600">2022 - Present</span>
+                        <h3 class="text-xl font-bold mt-2 mb-2">BSc in Biomedical Technology</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-2">University of Excellence</p>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Specializing in medical instrumentation, diagnostic systems, and healthcare technology innovation. Focus on integrating traditional medicine with modern biomedical devices.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-sky-100 dark:bg-sky-900 text-sky-700 dark:text-sky-300 rounded-full text-sm">GPA: 3.8/4.0</span>
+                            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300 rounded-full text-sm">Dean's List</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-10 ml-8 timeline-item relative" data-aos="fade-left" data-aos-delay="100">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg card-hover">
+                        <span class="text-sm font-semibold text-emerald-600">2024</span>
+                        <h3 class="text-xl font-bold mt-2 mb-2">Research Internship</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-2">National Medical Research Institute</p>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Conducted research on non-invasive glucose monitoring systems and contributed to the development of novel biosensor technologies for diabetes management.
+                        </p>
+                        <div class="mt-4">
+                            <span class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-700 dark:text-cyan-300 rounded-full text-sm">Published Research</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-10 ml-8 timeline-item relative" data-aos="fade-left" data-aos-delay="200">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg card-hover">
+                        <span class="text-sm font-semibold text-cyan-600">2023</span>
+                        <h3 class="text-xl font-bold mt-2 mb-2">Innovation Award</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-2">National Biomedical Engineering Conference</p>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Received the Best Student Innovation Award for developing a low-cost ECG monitoring device designed for resource-limited healthcare settings.
+                        </p>
+                        <div class="mt-4">
+                            <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 rounded-full text-sm">🏆 1st Place</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-10 ml-8 timeline-item relative" data-aos="fade-left" data-aos-delay="300">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg card-hover">
+                        <span class="text-sm font-semibold text-purple-600">2022</span>
+                        <h3 class="text-xl font-bold mt-2 mb-2">Certifications</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-2">Professional Development</p>
+                        <ul class="text-gray-700 dark:text-gray-300 list-disc list-inside space-y-1">
+                            <li>Medical Device Design & Regulation</li>
+                            <li>Biomedical Signal Processing</li>
+                            <li>Healthcare Data Analytics</li>
+                            <li>ISO 13485 Medical Devices QMS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="py-20 px-4 section-bg-light">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 gradient-text" data-aos="fade-up">Research Interests</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12" data-aos="fade-up">Areas of focus and future career goals</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg card-hover" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-search-plus text-sky-600 mr-3"></i>
+                        Current Research Focus
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Non-invasive diagnostic technologies for early disease detection</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">AI-powered medical imaging and pattern recognition systems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Wearable biosensors for continuous health monitoring</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Integration of traditional medicine with modern diagnostic tools</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-emerald-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Point-of-care testing devices for resource-limited settings</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg card-hover" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-bullseye text-cyan-600 mr-3"></i>
+                        Career Aspirations
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-rocket text-sky-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Lead R&D in medical device innovation for global healthcare impact</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-rocket text-sky-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Develop affordable diagnostic solutions for underserved communities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-rocket text-sky-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Bridge traditional and modern medicine through technology</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-rocket text-sky-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Pursue advanced research in biomedical instrumentation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-rocket text-sky-600 mt-1 mr-3"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Contribute to regulatory standards in medical device development</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-gradient-to-r from-sky-500 to-emerald-500 rounded-xl p-8 text-white text-center" data-aos="zoom-in">
+                <i class="fas fa-quote-left text-3xl mb-4 opacity-50"></i>
+                <p class="text-xl md:text-2xl font-semibold italic mb-4">
+                    "Bridging ancient healing wisdom with cutting-edge technology to create holistic healthcare solutions for tomorrow"
+                </p>
+                <p class="text-lg opacity-90">- My Vision for Healthcare Innovation</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 gradient-text" data-aos="fade-up">Get In Touch</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12" data-aos="fade-up">Let's collaborate on innovative healthcare solutions</p>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="space-y-6" data-aos="fade-right">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-sky-100 dark:bg-sky-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope text-sky-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold mb-1">Email</h3>
+                            <p class="text-gray-600 dark:text-gray-400">yugara.weerawardhana@example.com</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-phone text-emerald-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold mb-1">Phone</h3>
+                            <p class="text-gray-600 dark:text-gray-400">+94 XX XXX XXXX</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-cyan-100 dark:bg-cyan-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-cyan-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold mb-1">Location</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Colombo, Sri Lanka</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <h3 class="font-bold mb-4">Connect on Social Media</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-sky-500 rounded-lg flex items-center justify-center text-white hover:bg-sky-600 transition-colors">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                                <i class="fab fa-youtube text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form space-y-4" data-aos="fade-left" id="contact-form">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Name</label>
+                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 focus:border-sky-600 dark:focus:border-sky-600" placeholder="Your name">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Email</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 focus:border-sky-600 dark:focus:border-sky-600" placeholder="your.email@example.com">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Subject</label>
+                        <input type="text" name="subject" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 focus:border-sky-600 dark:focus:border-sky-600" placeholder="What's this about?">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Message</label>
+                        <textarea name="message" required rows="4" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 focus:border-sky-600 dark:focus:border-sky-600 resize-none" placeholder="Your message here..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full px-8 py-3 bg-gradient-to-r from-sky-600 to-cyan-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                        Send Message
+                        <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-400 mb-4">
+                &copy; 2024 Yugara Weerawardhana. All rights reserved.
+            </p>
+            <p class="text-gray-500 text-sm">
+                Innovating Healthcare Through Technology | Biomedical Engineering Excellence
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const loader = document.getElementById('loader');
+        const contactForm = document.getElementById('contact-form');
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        window.addEventListener('load', () => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const skillBars = entry.target.querySelectorAll('.skill-bar');
+                        skillBars.forEach(bar => {
+                            const width = bar.getAttribute('data-width');
+                            setTimeout(() => {
+                                bar.style.width = width + '%';
+                            }, 200);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.card-hover').forEach(card => {
+                if (card.querySelector('.skill-bar')) {
+                    observer.observe(card);
+                }
+            });
+        });
+
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+
+            const button = contactForm.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            button.disabled = true;
+
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                button.classList.remove('from-sky-600', 'to-cyan-600');
+                button.classList.add('from-emerald-600', 'to-green-600');
+
+                setTimeout(() => {
+                    contactForm.reset();
+                    button.innerHTML = originalText;
+                    button.classList.remove('from-emerald-600', 'to-green-600');
+                    button.classList.add('from-sky-600', 'to-cyan-600');
+                    button.disabled = false;
+                }, 2000);
+            }, 1500);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-sky-600');
+                    if (link.getAttribute('href').slice(1) === current) {
+                        link.classList.add('text-sky-600');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
