@@ -297,3 +297,18 @@
     </div>
   </section>
 
+  <!-- Defensive loader hide: ensures spinner is removed even if other scripts fail -->
+  <script>
+    (function(){
+      const loader = document.getElementById('loader');
+      function hide() {
+        if (!loader) return;
+        try { loader.style.opacity = '0'; } catch(e) {}
+        setTimeout(() => { try { loader.style.display = 'none'; } catch(e) {} }, 500);
+      }
+      try { window.addEventListener('load', hide); } catch(e) { hide(); }
+      // Fallback in case load never fires or script errors earlier
+      document.addEventListener('DOMContentLoaded', () => setTimeout(hide, 3500));
+    })();
+  </script>
+

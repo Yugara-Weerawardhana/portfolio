@@ -971,6 +971,17 @@
                 });
             });
         });
+        // Defensive fallback: hide loader after a short delay if other scripts fail
+        (function(){
+            try {
+                const fallbackLoader = document.getElementById('loader');
+                setTimeout(() => {
+                    if (!fallbackLoader) return;
+                    try { fallbackLoader.style.opacity = '0'; } catch(e) {}
+                    try { fallbackLoader.style.display = 'none'; } catch(e) {}
+                }, 3500);
+            } catch(e) {}
+        })();
     </script>
 </body>
 </html>
