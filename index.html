@@ -206,27 +206,6 @@
     <div class="loading-spinner"></div>
   </div>
 
-  <script>
-    (function() {
-      const loader = document.getElementById('loader');
-
-      function hideLoader() {
-        if (!loader) return;
-        try {
-          loader.style.opacity = '0';
-          setTimeout(() => { loader.style.display = 'none'; }, 500);
-        } catch (e) {}
-      }
-
-      window.addEventListener('load', hideLoader);
-
-      // Fallback: ensure loader hidden after 3.5s even if load fails
-      document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(hideLoader, 3500);
-      });
-    })();
-  </script>
-
   <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/80 dark-mode:bg-slate-900/80 shadow-sm transition-all duration-300" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
