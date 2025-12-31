@@ -67,121 +67,15 @@
     .card-hover {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+</head>
+<body class="light-mode smooth-scroll">
+  <!-- React app mount point -->
+  <div id="root"></div>
 
-    .card-hover:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
-
-    .dark-mode .card-hover:hover {
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    }
-
-    .loading-spinner {
-      border: 4px solid rgba(0, 0, 0, 0.1);
-      border-left-color: var(--primary-color);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.7;
-      }
-    }
-
-    .animate-pulse-slow {
-      animation: pulse 3s ease-in-out infinite;
-    }
-
-    .nav-link {
-      position: relative;
-      transition: color 0.3s ease;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -8px;
-      top: 0;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--primary-color);
-      border: 4px solid var(--bg-light);
-      z-index: 1;
-    }
-
-    .dark-mode .timeline-item::before {
-      border-color: var(--bg-dark);
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
-    }
-
-    #loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--bg-light);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease;
-    }
-
-    .dark-mode #loader {
-      background: var(--bg-dark);
-    }
-
-    .section-bg-light {
+  <!-- Load the React entry (Vite will serve this during dev and build will bundle it) -->
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
       background-color: var(--bg-light-secondary);
     }
 
