@@ -203,6 +203,11 @@ export default function App() {
             </div>
 
             <div className="flex justify-center space-x-6">
+              <a href="https://www.facebook.com/share/1BwSXKxoFR/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-2xl text-gray-600 dark:text-gray-400 hover:text-sky-600 transition-colors">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H8.9v-2.89h1.54V9.41c0-1.52.9-2.36 2.29-2.36.66 0 1.35.12 1.35.12v1.49h-.76c-.75 0-.98.47-.98.95v1.14h1.67l-.27 2.89h-1.4v6.99C18.34 21.12 22 16.99 22 12z" />
+                </svg>
+              </a>
               <a href="#" className="text-2xl text-gray-600 dark:text-gray-400 hover:text-sky-600 transition-colors">
                 <Linkedin size={28} />
               </a>
@@ -212,7 +217,7 @@ export default function App() {
               <a href="#" className="text-2xl text-gray-600 dark:text-gray-400 hover:text-sky-600 transition-colors">
                 <Twitter size={28} />
               </a>
-              <a href="mailto:yugara@example.com" className="text-2xl text-gray-600 dark:text-gray-400 hover:text-sky-600 transition-colors">
+              <a href="mailto:weerawardhana02@gmail.com" className="text-2xl text-gray-600 dark:text-gray-400 hover:text-sky-600 transition-colors">
                 <Mail size={28} />
               </a>
             </div>
@@ -229,7 +234,7 @@ export default function App() {
               <div>
                 <div className="aspect-square rounded-2xl bg-gradient-to-br from-sky-500 to-emerald-500 p-1 shadow-2xl">
                   <div className="w-full h-full rounded-2xl bg-white dark:bg-slate-800 flex items-center justify-center overflow-hidden">
-                    <Stethoscope size={144} className="text-sky-600 opacity-20" />
+                    <img src="/assets/profile.jpg" alt="Yugara Weerawardhana" className="w-full h-full object-cover" />
                   </div>
                 </div>
               </div>
@@ -426,28 +431,28 @@ export default function App() {
             <div className="relative border-l-2 border-sky-600 ml-4">
               {[
                 {
-                  year: '2022 - Present',
-                  title: 'BSc in Biomedical Technology',
-                  org: 'University of Excellence',
+                  year: '2025',
+                  title: 'BHSc in Biomedical Technology',
+                  org: 'Gampaha Wickramarachchi University of Indigenous Medicine',
                   desc: 'Specializing in medical instrumentation, diagnostic systems, and healthcare technology innovation. Focus on integrating traditional medicine with modern biomedical devices.',
                   badges: ['GPA: 3.8/4.0', "Dean's List"],
                 },
                 {
-                  year: '2024',
+                  year: '2025',
                   title: 'Research Internship',
                   org: 'National Medical Research Institute',
                   desc: 'Conducted research on non-invasive glucose monitoring systems and contributed to the development of novel biosensor technologies for diabetes management.',
                   badges: ['Published Research'],
                 },
                 {
-                  year: '2023',
+                  year: '2024',
                   title: 'Innovation Award',
                   org: 'National Biomedical Engineering Conference',
                   desc: 'Received the Best Student Innovation Award for developing a low-cost ECG monitoring device designed for resource-limited healthcare settings.',
                   badges: ['🏆 1st Place'],
                 },
                 {
-                  year: '2022',
+                  year: '2025',
                   title: 'Certifications',
                   org: 'Professional Development',
                   desc: '',
@@ -504,22 +509,22 @@ export default function App() {
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="space-y-6">
                 {[
-                  {
+                    {
                     icon: Mail,
                     title: 'Email',
-                    value: 'yugara.weerawardhana@example.com',
+                    value: 'weerawardhana02@gmail.com',
                     color: 'sky',
                   },
                   {
                     icon: Phone,
                     title: 'Phone',
-                    value: '+94 XX XXX XXXX',
+                    value: '0764365905',
                     color: 'emerald',
                   },
                   {
                     icon: MapPin,
                     title: 'Location',
-                    value: 'Colombo, Sri Lanka',
+                    value: 'Hansagiri, Goyambokka, Tangalle.',
                     color: 'cyan',
                   },
                 ].map((contact, idx) => (
@@ -536,9 +541,19 @@ export default function App() {
                   </div>
                 ))}
 
-                <div className="pt-6">
+                    <div className="pt-6">
                   <h3 className="font-bold mb-4">Connect on Social Media</h3>
                   <div className="flex space-x-4">
+                    <a
+                      href="https://www.facebook.com/share/1BwSXKxoFR/?mibextid=wwXIfr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-blue-800 rounded-lg flex items-center justify-center text-white hover:bg-blue-900 transition-colors"
+                    >
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H8.9v-2.89h1.54V9.41c0-1.52.9-2.36 2.29-2.36.66 0 1.35.12 1.35.12v1.49h-.76c-.75 0-.98.47-.98.95v1.14h1.67l-.27 2.89h-1.4v6.99C18.34 21.12 22 16.99 22 12z" />
+                      </svg>
+                    </a>
                     <a
                       href="#"
                       className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
@@ -616,7 +631,7 @@ export default function App() {
         <footer className="bg-slate-900 text-white py-8 px-4">
           <div className="max-w-6xl mx-auto text-center">
             <p className="text-gray-400 mb-4">
-              © 2024 Yugara Weerawardhana. All rights reserved.
+              © 2025 Yugara Weerawardhana. All rights reserved.
             </p>
             <p className="text-gray-500 text-sm">
               Innovating Healthcare Through Technology | Biomedical Engineering Excellence
