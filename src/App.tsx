@@ -31,18 +31,30 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    let savedTheme = 'light';
+    try {
+      savedTheme = localStorage.getItem('theme') || 'light';
+    } catch (e) {
+      savedTheme = 'light';
+    }
     setIsDark(savedTheme === 'dark');
     setLoading(false);
   }, []);
 
+  // Fallback: ensure loading is cleared after a short delay in case something blocks
   useEffect(() => {
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    const t = setTimeout(() => setLoading(false), 3500);
+    return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    } catch (e) {}
+    try {
+      if (isDark) document.documentElement.classList.add('dark');
+      else document.documentElement.classList.remove('dark');
+    } catch (e) {}
   }, [isDark]);
 
   useEffect(() => {
